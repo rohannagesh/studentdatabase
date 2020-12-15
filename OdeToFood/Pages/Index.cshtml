@@ -1,0 +1,21 @@
+﻿@page
+
+@using Microsoft.AspNetCore.Authentication
+
+@functions {
+    public async Task<IActionResult> OnPostAsync()
+    {
+        await HttpContext.SignOutAsync();
+        return RedirectToPage("Login");
+    }
+}
+
+
+
+    <h1>STUDENT DATABASE</h1>
+    <form method="post">
+        <footer>
+            <button type="submit" class="btn btn-danger">Logout</button>
+            @Html.AntiForgeryToken()
+        </footer>
+    </form>

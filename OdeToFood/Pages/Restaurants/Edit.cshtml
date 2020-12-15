@@ -1,0 +1,52 @@
+﻿@page "{studentId:int?}"
+@model OdeToFood.Pages.Restaurants.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editing @Model.Student.Name</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Student.Id" />
+    <div class="form-group">
+        <label asp-for="Student.Name"></label>
+        <input asp-for="Student.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Student.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Student.Age"></label>
+        <input asp-for="Student.Age" class="form-control" />
+        <span class="text-danger" asp-validation-for="Student.Age"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Student.Gender"></label>
+        <input asp-for="Student.Gender" class="form-control" />
+        <span class="text-danger" asp-validation-for="Student.Gender"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Student.department"></label>
+        <select class="form-control" asp-for="Student.department"
+                asp-items="Model.Departments"></select>
+        <span class="text-danger" asp-validation-for="Student.department"></span>
+    </div>
+
+    <div class="form-group" >
+        <label asp-for="Student.quota"></label>
+        <select class="form-control" asp-for="Student.quota"
+                asp-items="Model.Quotas" id="quota"></select>
+        <span class="text-danger" asp-validation-for="Student.quota"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Student.Fees"></label>
+        <input asp-for="Student.Fees" class="form-control" id="fees" />
+        <span class="text-danger" asp-validation-for="Student.Fees"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+@section Scripts{ 
+<partial name="_ValidationScriptsPartial" />
+}
